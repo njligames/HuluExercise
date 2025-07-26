@@ -51,15 +51,15 @@
             width="1001"
             height="371"
         />
-        <!-- <Poster
+
+        <Poster
             id="grid_poster_overlay"
             loadDisplayMode="scaleToFill"
 			translation="[158,42]"
             width="798"
             height="371"
             blendColor="0xFFFFFFFF"
-            uri="pkg:/images/hero_gradient2.png"
-        /> -->
+        />
 
         <Rectangle
             id="divider"
@@ -69,29 +69,20 @@
             translation="[158,483]"
         />
 
-         <!-- Label with title and length of content -->
-        <!-- <Label
+        <Label
 	        id="titleLabel"
 	        width="500"
 			translation="[248,188]"
             font="font:LargeBoldSystemFont"
-	    /> -->
-        <!-- Label with description of content.
-	         wrap="true" and numLines="3" means that the text can be broken into three lines -->
-        <!-- <Label
-	        id="descriptionLabel"
-	        width="500"
-			translation="[248,242]"
-            font="font:MediumBoldSystemFont"
-	    /> -->
+	    />
 
         <RowList
             itemComponentName="HuluRowListItem"
             id="rowList"
             translation="[158,454]"
             numRows="1"
-            rowitemSize="[[215,121]]"
-            rowItemSpacing="[[15,0]]"
+            rowitemSize="[[215,120]]"
+            rowItemSpacing="[[21,0]]"
             itemSize="[1122,227]"
             rowLabelOffset="[[0,25]]"
             focusXOffset="[0]"

@@ -110,28 +110,32 @@ sub GetContent2()
     end if
 end sub
 
+function ParseImageUrl(image as object) as string
+    finalUrl = "https://image.roku.com/ZHZscHItMTc2/streaming-overview.jpg"
+    if invalid <> image
+        url = image?.series?.default?.url
+        if invalid = url then url = image?.program?.default?.url
+        if invalid <> url then finalUrl = url
+    end if
+    return finalUrl
+end function
+
 function GetItemData(video as object) as object
 
-    finalTileUrl = "https://image.roku.com/ZHZscHItMTc2/streaming-overview.jpg"
-    ratio = video?.image?.tile["1.78"]
-    if invalid <> ratio
-        url = ratio?.series?.default?.url
-        if invalid = url
-            url = ratio?.program?.default?.url
-        end if
-    end if
-    if invalid <> url then finalTileUrl = url
+    finalTileUrl = ParseImageUrl(video?.image?.tile?["1.78"])
+    finalBackgroundUrl = ParseImageUrl(video?.image?.hero_tile?["1.78"])
+    finalBackgroundDetails = ParseImageUrl(video?.image?.background_details?["1.78"])
 
     title = "Empty"
     content = video?.text?.title?.full?.series?.default?.content
-    if invalid = content
-        content = video?.text?.title?.full?.program?.default?.content
-    end if
+    if invalid = content then content = video?.text?.title?.full?.program?.default?.content
     if invalid <> content then title = content
 
     itemContent = createObject("RoSGNode", "ContentNode")
     itemContent.HDPosterUrl = finalTileUrl
     itemContent.title = title
+    itemContent.FHDPosterUrl = finalBackgroundUrl
+    itemContent.SDPosterUrl = finalBackgroundDetails
     return itemContent
 end function
 

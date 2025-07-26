@@ -1,6 +1,5 @@
 sub init()
     m.itemposter = m.top.findNode("itemPoster")
-    ' m.itemmask = m.top.findNode("itemMask")
     m.itemlabel = m.top.findNode("itemLabel")
 end sub
 
@@ -11,12 +10,10 @@ sub showcontent()
 end sub
 
 sub showfocus()
-    'This increases the size of the tile as it gains more focus
     scale = 1 + (m.top.focusPercent * 0.08)
     m.itemposter.scale = [scale, scale]
 end sub
 
 sub showrowfocus()
-    ' m.itemmask.opacity = 0.75 - (m.top.rowFocusPercent * 0.75)
     m.itemlabel.opacity = m.top.rowFocusPercent
 end sub
