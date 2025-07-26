@@ -12,15 +12,15 @@
     <Poster 
       id = "itemPoster" 
       translation = "[ -9, -9 ]"  
-      width = "215" 
+      width = "216" 
       height = "120" 
     >
     </Poster>
 
     <Label
       id="itemLabel"
-      width="215"
-      translation="[0,136]"
+      width="216"
+      translation="[0,135]"
       font = "font:SmallestBoldSystemFont" 
     />
 
