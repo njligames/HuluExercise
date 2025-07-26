@@ -34,8 +34,6 @@ sub GetContent()
                                 refid_title = refid_json?.data?.CuratedSet?.text?.title?.full?.set?.default?.content
                                 items = refid_json?.data?.CuratedSet?.items
                                 if invalid <> items and invalid <> refid_title
-                                    ?refid_title
-
 
                                     row = {}
                                     row.title = refid_title
@@ -45,67 +43,17 @@ sub GetContent()
                                         row.children.Push(itemData)
                                     end for
                                     rootChildren.Push(row)
-
-
-
-                                    ' for each item in items
-                                    '     ?item
-                                    ' next
                                 end if
                             end if
                         end if
-
-
-
                     end if
                 end if
             next
         end if
-        ' set up a root ContentNode to represent rowList on the GridScreen
         contentNode = CreateObject("roSGNode", "ContentNode")
         contentNode.Update({
             children: rootChildren
         }, true)
-        ' populate content field with root content node.
-        ' Observer(see OnMainContentLoaded in MainScene.brs) is invoked at that moment
-        m.top.content = contentNode
-    end if
-end sub
-
-sub GetContent2()
-    ' request the content feed from the API
-    xfer = CreateObject("roURLTransfer")
-    xfer.SetCertificatesFile("common:/certs/ca-bundle.crt")
-    xfer.SetURL("https://jonathanbduval.com/roku/feeds/roku-developers-feed-v1.json")
-    rsp = xfer.GetToString()
-    rootChildren = []
-    rows = {}
-
-    ' parse the feed and build a tree of ContentNodes to populate the GridView
-    json = ParseJson(rsp)
-    if json <> invalid
-        for each category in json
-            value = json.Lookup(category)
-            if Type(value) = "roArray" ' if parsed key value having other objects in it
-                if category <> "series" ' ignore series for this phase
-                    row = {}
-                    row.title = category
-                    row.children = []
-                    for each item in value ' parse items and push them to row
-                        itemData = GetItemData2(item)
-                        row.children.Push(itemData)
-                    end for
-                    rootChildren.Push(row)
-                end if
-            end if
-        end for
-        ' set up a root ContentNode to represent rowList on the GridScreen
-        contentNode = CreateObject("roSGNode", "ContentNode")
-        contentNode.Update({
-            children: rootChildren
-        }, true)
-        ' populate content field with root content node.
-        ' Observer(see OnMainContentLoaded in MainScene.brs) is invoked at that moment
         m.top.content = contentNode
     end if
 end sub
@@ -137,25 +85,4 @@ function GetItemData(video as object) as object
     itemContent.FHDPosterUrl = finalBackgroundUrl
     itemContent.SDPosterUrl = finalBackgroundDetails
     return itemContent
-end function
-
-function GetItemData2(video as object) as object
-    item = {}
-    ' populate some standard content metadata fields to be displayed on the GridScreen
-    ' https://developer.roku.com/docs/developer-program/getting-started/architecture/content-metadata.md
-    ' if video.longDescription <> invalid
-    '     item.description = video.longDescription
-    ' else
-    '     item.description = video.shortDescription
-    ' end if
-    stop
-    item.hdPosterURL = video.thumbnail
-    ' item.title = video.title
-    ' item.releaseDate = video.releaseDate
-    ' item.id = video.id
-    ' if video.content <> invalid
-    '     ' populate length of content to be displayed on the GridScreen
-    '     item.length = video.content.duration
-    ' end if
-    return item
 end function
