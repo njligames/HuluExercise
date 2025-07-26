@@ -1,0 +1,24 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "## Start Developing ```sh export ROKU_DEV_TARGET=192.168.1.84 export DEVPASSWORD=admin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/njligames/GospelStreaming.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/njligames/GospelStreaming/issues"
+  },
+  "homepage": "https://github.com/njligames/GospelStreaming#readme",
+  "dependencies": {
+    "@rokucommunity/bslint": "^0.6.0",
+    "brighterscript": "^0.43.1"
+  }
+}

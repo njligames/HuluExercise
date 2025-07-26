@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--********** Copyright 2020 Roku Corp.  All Rights Reserved. **********-->
+
+<component name="DetailsScreen" extends="Group" initialFocus="Buttons" xsi:noNamespaceSchemaLocation="https://devtools.web.roku.com/schema/RokuSceneGraph.xsd">
+    <script type="text/brightscript" uri="DetailsScreen.brs" />
+    <script type="text/brightscript" uri="pkg:/source/utils.brs" />
+    <interface>
+        <!-- Content fields -->
+        <field id="content" type="node" />
+        <!-- @WriteOnly  -->
+        <!-- Manually focus on desired item. This field must be set after setting the content field. -->
+        <field id="jumpToItem" type="integer" onChange="OnJumpToItem" value="0" alwaysNotify="true" />
+        <!-- tells what item is currently focused  -->
+        <field id="itemFocused" type="integer" alwaysNotify="true" />
+        <field id="buttonSelected" type="integer" alias="buttons.itemSelected" />
+    </interface>
+    <children>
+        <!-- <Poster
+            id="poster"
+            width="357"
+            loadWidth="357"
+            height="201"
+            loadHeight="201"
+            loadDisplayMode="scaleToFit"
+        /> -->
+        <Poster
+            id="poster"
+            loadDisplayMode="scaleToFill"
+			translation="[65,108]"
+            width="1215"
+            height="450"
+        />
+        <Poster
+            id="poster_overlay"
+            loadDisplayMode="scaleToFill"
+			translation="[0,108]"
+            width="955"
+            height="450"
+            blendColor="0xFFFFFFFF"
+            uri="pkg:/images/hero_gradient2.png"
+        />
+        <Label
+            id="titleLabel"
+            wrap="true"
+            maxLines="2"
+            horizAlign="left"
+			translation="[92,184]"
+            width="470"
+            height="57"
+            font="font:LargeBoldSystemFont"
+        />
+        <Label
+            id="descriptionLabel"
+            wrap="true"
+            maxLines="6"
+            horizAlign="left"
+			translation="[92,362]"
+            width="499"
+            height="109"
+            font="font:SmallestSystemFont"
+        />
+        <Label
+            id="releaseLabel"
+            wrap="false"
+            maxLines="1"
+            horizAlign="left"
+			translation="[92,273]"
+            width="111"
+            height="17"
+            font="font:SmallestSystemFont"
+        />
+        <Label
+            id="timeLabel"
+            wrap="false"
+            maxLines="1"
+            horizAlign="left"
+			translation="[213,273]"
+            width="73"
+            height="17"
+            font="font:SmallestSystemFont"
+        />
+        <LabelList
+            id="buttons"
+            numRows="3"
+            itemSpacing="[0,10]"
+            itemSize="[264, 40]"
+			translation="[92,306]"
+            textHorizAlign="center"
+            font="font:SmallSystemFont"
+            focusBitmapBlendColor="0x01B6D1FF"
+            focusedColor="0xFFFFFFFF"
+        />
+
+    </children>
+</component>
+

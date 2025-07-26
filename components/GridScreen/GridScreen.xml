@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--********** Copyright 2020 Roku Corp.  All Rights Reserved. **********-->
+
+<component name="GridScreen" extends="Group"  initialFocus="RowList">
+    <script type="text/brightscript" uri="GridScreen.brs" />
+	 <interface>
+        <!-- Specifies the content for the Grid -->
+        <field id="content" type="node" alias="RowList.content" />
+        <field id="rowItemSelected" type="intarray" alwaysNotify="true" alias="RowList.rowItemSelected" />
+        <field id="jumpToRowItem" type="intarray" alias="RowList.jumpToRowItem" />
+    </interface>
+    <children>
+
+        <Rectangle
+            id="menu"
+            width="181"
+            height="720"
+            translation="[0,0]"
+            color="0x00517500"
+        >
+            <Button
+                id = "search_button"
+                minWidth = "24" 
+                minHeight = "24" 
+                translation="[52, 153]"
+                iconUri = "pkg:/images/icon_search.png"
+                focusedIconUri = "pkg:/images/icon_search.png"
+            />
+            <Button
+                id = "home_button"
+                minWidth = "24" 
+                minHeight = "24" 
+                translation="[52, 212]"
+                iconUri = "pkg:/images/icon_home.png"
+                focusedIconUri = "pkg:/images/icon_home.png"
+            />
+            <Button
+                id = "settings_button"
+                minWidth = "24" 
+                minHeight = "24" 
+                translation="[52, 272]"
+                iconUri = "pkg:/images/icon_settings.png"
+                focusedIconUri = "pkg:/images/icon_settings.png"
+            />
+        </Rectangle>
+
+        <Poster
+            id="grid_poster"
+            loadDisplayMode="scaleToFill"
+			translation="[158,42]"
+            width="1001"
+            height="371"
+        />
+        <!-- <Poster
+            id="grid_poster_overlay"
+            loadDisplayMode="scaleToFill"
+			translation="[158,42]"
+            width="798"
+            height="371"
+            blendColor="0xFFFFFFFF"
+            uri="pkg:/images/hero_gradient2.png"
+        /> -->
+
+        <Rectangle
+            id="divider"
+            color="0xFFFFFFFF"
+            width="1122"
+            height="1"
+            translation="[158,483]"
+        />
+
+         <!-- Label with title and length of content -->
+        <!-- <Label
+	        id="titleLabel"
+	        width="500"
+			translation="[248,188]"
+            font="font:LargeBoldSystemFont"
+	    /> -->
+        <!-- Label with description of content.
+	         wrap="true" and numLines="3" means that the text can be broken into three lines -->
+        <!-- <Label
+	        id="descriptionLabel"
+	        width="500"
+			translation="[248,242]"
+            font="font:MediumBoldSystemFont"
+	    /> -->
+
+        <RowList
+            itemComponentName="HuluRowListItem"
+            id="rowList"
+            translation="[158,454]"
+            numRows="1"
+            rowitemSize="[[215,121]]"
+            rowItemSpacing="[[15,0]]"
+            itemSize="[1122,227]"
+            rowLabelOffset="[[0,25]]"
+            focusXOffset="[0]"
+            showRowLabel="[true]"
+        />
+    </children>
+</component>

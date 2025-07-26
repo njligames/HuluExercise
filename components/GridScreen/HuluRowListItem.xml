@@ -1,0 +1,43 @@
+<component name = "HuluRowListItem" extends = "Group" >
+ 
+  <interface > 
+    <field id = "itemContent" type = "node" onChange = "showcontent"/>
+    <field id = "focusPercent" type = "float" onChange = "showfocus"/> 
+    <field id = "rowFocusPercent" type = "float" onChange = "showrowfocus"/>
+  </interface>
+  <script type="text/brightscript" uri="HuluRowListItem.brs" />
+ 
+  <children >
+
+    <Poster 
+      id = "itemPoster" 
+      translation = "[ -6, -5 ]"  
+      width = "215" 
+      height = "121" 
+    >
+
+      <!-- <Rectangle 
+        id = "itemMask" 
+        color = "0x000000FF" 
+        opacity = "0.75" 
+        width = "215" 
+        height = "121" 
+        scaleRotateCenter = "[ 256.0, 144.0 ]"/> -->
+
+    </Poster>
+    <!-- <Label 
+      id = "itemLabel" 
+      translation = "[ 20, 264 ]" 
+      horizAlign = "right" 
+      width = "492" 
+      opacity = "0.0"/> -->
+
+        <Label
+	        id="itemLabel"
+	        width="215"
+			translation="[0,136]"
+            font = "font:SmallestBoldSystemFont" 
+	    />
+
+  </children>
+</component>
