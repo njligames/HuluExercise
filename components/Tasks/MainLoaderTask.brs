@@ -28,13 +28,12 @@ sub GetContent()
 
                             refid_json = ParseJson(rsp)
                             if invalid <> refid_json
-                                ' refid_title = refid_json?.data?.CuratedSet?.text?.title?.full?.set?.default?.content
                                 items = refid_json?.data?.CuratedSet?.items
                                 if invalid <> items
                                     row = {}
                                     row.title = title
                                     row.children = []
-                                    for each item in items ' parse items and push them to row
+                                    for each item in items
                                         itemData = GetItemData(item)
                                         row.children.Push(itemData)
                                     end for
@@ -42,6 +41,22 @@ sub GetContent()
                                 end if
                             end if
                         end if
+                    else if "CuratedSet" = set.type
+                        ' I added this so that there will be more rows; and basically because I can....
+                        ' items = set?.items
+                        ' title = "Empty"
+                        ' _title = set?.text?.title?.full?.set?.default?.content
+                        ' if invalid <> _title then title = _title
+                        ' if invalid <> items
+                        '     row = {}
+                        '     row.title = title
+                        '     row.children = []
+                        '     for each item in items
+                        '         itemData = GetItemData(item)
+                        '         row.children.Push(itemData)
+                        '     end for
+                        '     rootChildren.Push(row)
+                        ' end if
                     end if
                 end if
             next
@@ -59,6 +74,7 @@ function ParseImageUrl(image as object) as string
     if invalid <> image
         url = image?.series?.default?.url
         if invalid = url then url = image?.program?.default?.url
+        if invalid = url then url = image?.default?.default?.url
         if invalid <> url then finalUrl = url
     end if
     return finalUrl
@@ -73,6 +89,7 @@ function GetItemData(video as object) as object
     title = "Empty"
     content = video?.text?.title?.full?.series?.default?.content
     if invalid = content then content = video?.text?.title?.full?.program?.default?.content
+    if invalid = content then content = video?.text?.title?.full?.collection?.default?.content
     if invalid <> content then title = content
 
     itemContent = createObject("RoSGNode", "ContentNode")
