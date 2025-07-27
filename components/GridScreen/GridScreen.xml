@@ -71,7 +71,7 @@
 
         <Label
 	        id="titleLabel"
-	        width="500"
+	        width="501"
 			translation="[248,188]"
             font="font:LargeBoldSystemFont"
 	    />

@@ -26,11 +26,11 @@
         <Poster
             id="poster"
             loadDisplayMode="scaleToFill"
-			translation="[65,108]"
-            width="1215"
-            height="450"
+			translation="[0,0]"
+            width="1281"
+            height="720"
         />
-        <Poster
+        <!-- <Poster
             id="poster_overlay"
             loadDisplayMode="scaleToFill"
 			translation="[0,108]"
@@ -38,14 +38,14 @@
             height="450"
             blendColor="0xFFFFFFFF"
             uri="pkg:/images/hero_gradient2.png"
-        />
+        /> -->
         <Label
             id="titleLabel"
             wrap="true"
             maxLines="2"
             horizAlign="left"
-			translation="[92,184]"
-            width="470"
+			translation="[93,183]"
+            width="501"
             height="57"
             font="font:LargeBoldSystemFont"
         />
@@ -54,12 +54,12 @@
             wrap="true"
             maxLines="6"
             horizAlign="left"
-			translation="[92,362]"
-            width="499"
-            height="109"
+			translation="[93,363]"
+            width="498"
+            height="108"
             font="font:SmallestSystemFont"
         />
-        <Label
+        <!-- <Label
             id="releaseLabel"
             wrap="false"
             maxLines="1"
@@ -68,8 +68,8 @@
             width="111"
             height="17"
             font="font:SmallestSystemFont"
-        />
-        <Label
+        /> -->
+        <!-- <Label
             id="timeLabel"
             wrap="false"
             maxLines="1"
@@ -78,13 +78,13 @@
             width="73"
             height="17"
             font="font:SmallestSystemFont"
-        />
+        /> -->
         <LabelList
             id="buttons"
             numRows="3"
-            itemSpacing="[0,10]"
-            itemSize="[264, 40]"
-			translation="[92,306]"
+            itemSpacing="[0,9]"
+            itemSize="[264, 42]"
+			translation="[93,306]"
             textHorizAlign="center"
             font="font:SmallSystemFont"
             focusBitmapBlendColor="0x01B6D1FF"
