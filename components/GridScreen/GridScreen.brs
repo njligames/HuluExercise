@@ -9,6 +9,7 @@ sub Init()
     m.titleLabel = m.top.FindNode("titleLabel")
 
     m.grid_poster = m.top.FindNode("grid_poster")
+    m.grid_poster_overlay = m.top.FindNode("grid_poster_overlay")
 
     m.search_button = m.top.FindNode("search_button")
     m.home_button = m.top.FindNode("home_button")
@@ -29,6 +30,7 @@ sub OnItemFocused()
     item = row.GetChild(focusedIndex[1])
 
     m.grid_poster.uri = item.FHDPosterUrl
+    m.grid_poster_overlay.uri = item.FHDPosterUrl
     m.titleLabel.text = item.title
 end sub
 

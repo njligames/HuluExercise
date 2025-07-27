@@ -42,21 +42,22 @@
         </Rectangle>
 
         <Poster
-            id="grid_poster"
+            id="grid_poster_overlay"
             loadDisplayMode="scaleToFill"
-			translation="[158,42]"
-            width="1001"
-            height="371"
+			translation="[159,42]"
+            width="798"
+            height="372"
+            blendColor="0xFFFFFF05"
         />
 
         <Poster
-            id="grid_poster_overlay"
-            loadDisplayMode="scaleToFill"
-			translation="[158,42]"
-            width="798"
-            height="371"
-            blendColor="0xFFFFFFFF"
+            id="grid_poster"
+            loadDisplayMode="scaleToFit"
+			translation="[618,42]"
+            width="663"
+            height="372"
         />
+
 
         <Rectangle
             id="divider"
@@ -68,8 +69,9 @@
 
         <Label
 	        id="titleLabel"
-	        width="501"
-			translation="[248,188]"
+	        width="450"
+			translation="[186,188]"
+            wrap = "true"
             font="font:LargeBoldSystemFont"
 	    />
 

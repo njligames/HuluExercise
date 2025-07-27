@@ -11,7 +11,7 @@
     <children>
         <Poster
             id="poster"
-            loadDisplayMode="scaleToFill"
+            loadDisplayMode="scaleToFit"
 			translation="[0,0]"
             width="1281"
             height="720"
