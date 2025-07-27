@@ -1,28 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<!--********** Copyright 2020 Roku Corp.  All Rights Reserved. **********-->
-
 <component name="DetailsScreen" extends="Group" initialFocus="Buttons" xsi:noNamespaceSchemaLocation="https://devtools.web.roku.com/schema/RokuSceneGraph.xsd">
     <script type="text/brightscript" uri="DetailsScreen.brs" />
     <script type="text/brightscript" uri="pkg:/source/utils.brs" />
     <interface>
-        <!-- Content fields -->
         <field id="content" type="node" />
-        <!-- @WriteOnly  -->
-        <!-- Manually focus on desired item. This field must be set after setting the content field. -->
         <field id="jumpToItem" type="integer" onChange="OnJumpToItem" value="0" alwaysNotify="true" />
-        <!-- tells what item is currently focused  -->
         <field id="itemFocused" type="integer" alwaysNotify="true" />
         <field id="buttonSelected" type="integer" alias="buttons.itemSelected" />
     </interface>
     <children>
-        <!-- <Poster
-            id="poster"
-            width="357"
-            loadWidth="357"
-            height="201"
-            loadHeight="201"
-            loadDisplayMode="scaleToFit"
-        /> -->
         <Poster
             id="poster"
             loadDisplayMode="scaleToFill"
@@ -30,15 +16,6 @@
             width="1281"
             height="720"
         />
-        <!-- <Poster
-            id="poster_overlay"
-            loadDisplayMode="scaleToFill"
-			translation="[0,108]"
-            width="955"
-            height="450"
-            blendColor="0xFFFFFFFF"
-            uri="pkg:/images/hero_gradient2.png"
-        /> -->
         <Label
             id="titleLabel"
             wrap="true"
@@ -59,29 +36,8 @@
             height="108"
             font="font:SmallestSystemFont"
         />
-        <!-- <Label
-            id="releaseLabel"
-            wrap="false"
-            maxLines="1"
-            horizAlign="left"
-			translation="[92,273]"
-            width="111"
-            height="17"
-            font="font:SmallestSystemFont"
-        /> -->
-        <!-- <Label
-            id="timeLabel"
-            wrap="false"
-            maxLines="1"
-            horizAlign="left"
-			translation="[213,273]"
-            width="73"
-            height="17"
-            font="font:SmallestSystemFont"
-        /> -->
         <LabelList
             id="buttons"
-            numRows="3"
             itemSpacing="[0,9]"
             itemSize="[264, 42]"
 			translation="[93,306]"

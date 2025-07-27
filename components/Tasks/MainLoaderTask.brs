@@ -1,9 +1,4 @@
-' ********** Copyright 2020 Roku Corp.  All Rights Reserved. **********
-
-' Note that we need to import this file in MainLoaderTask.xml using relative path.
 sub Init()
-    ' set the name of the function in the Task node component to be executed when the state field changes to RUN
-    ' in our case this method executed after the following cmd: m.contentTask.control = "run"(see Init method in MainScene)
     m.top.functionName = "GetContent"
 end sub
 
@@ -23,7 +18,9 @@ sub GetContent()
                 if invalid <> set and invalid <> set.type
                     if "SetRef" = set.type
                         refId = set?.refId
-                        title = set?.text?.title?.full?.set?.default?.content
+                        title = "Empty"
+                        _title = set?.text?.title?.full?.set?.default?.content
+                        if invalid <> _title then title = _title
 
                         if invalid <> refId
                             xfer.SetURL("https://cd-static.bamgrid.com/dp-117731241344/sets/" + refId + ".json")
@@ -31,12 +28,11 @@ sub GetContent()
 
                             refid_json = ParseJson(rsp)
                             if invalid <> refid_json
-                                refid_title = refid_json?.data?.CuratedSet?.text?.title?.full?.set?.default?.content
+                                ' refid_title = refid_json?.data?.CuratedSet?.text?.title?.full?.set?.default?.content
                                 items = refid_json?.data?.CuratedSet?.items
-                                if invalid <> items and invalid <> refid_title
-
+                                if invalid <> items
                                     row = {}
-                                    row.title = refid_title
+                                    row.title = title
                                     row.children = []
                                     for each item in items ' parse items and push them to row
                                         itemData = GetItemData(item)

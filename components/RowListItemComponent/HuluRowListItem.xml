@@ -21,7 +21,8 @@
       id="itemLabel"
       width="216"
       translation="[0,135]"
-      font = "font:SmallestBoldSystemFont" 
+      wrap = "true"
+      font = "font:TinySystemFont" 
     />
 
   </children>
