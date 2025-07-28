@@ -6,7 +6,7 @@
         <field id="content" type="node" />
         <field id="jumpToItem" type="integer" onChange="OnJumpToItem" value="0" alwaysNotify="true" />
         <field id="itemFocused" type="integer" alwaysNotify="true" />
-        <field id="buttonSelected" type="integer" alias="buttons.itemSelected" />
+        <!-- <field id="buttonSelected" type="integer" alias="buttons.itemSelected" /> -->
     </interface>
     <children>
         <Poster
@@ -36,7 +36,7 @@
             height="108"
             font="font:SmallestSystemFont"
         />
-        <LabelList
+        <!-- <LabelList
             id="buttons"
             itemSpacing="[0,9]"
             itemSize="[264, 42]"
@@ -45,7 +45,14 @@
             font="font:SmallSystemFont"
             focusBitmapBlendColor="0x01B6D1FF"
             focusedColor="0xFFFFFFFF"
-        />
+        /> -->
+        <Button
+            id = "button"
+            text = "Play"
+			translation="[93,306]"
+            iconUri=""
+            focusedIconUri=""
+        />    
 
     </children>
 </component>
