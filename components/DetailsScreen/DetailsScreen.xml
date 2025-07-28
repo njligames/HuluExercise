@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <component name="DetailsScreen" extends="Group" initialFocus="Buttons" xsi:noNamespaceSchemaLocation="https://devtools.web.roku.com/schema/RokuSceneGraph.xsd">
     <script type="text/brightscript" uri="DetailsScreen.brs" />
-    <script type="text/brightscript" uri="pkg:/source/utils.brs" />
     <interface>
         <field id="content" type="node" />
         <field id="jumpToItem" type="integer" onChange="OnJumpToItem" value="0" alwaysNotify="true" />
         <field id="itemFocused" type="integer" alwaysNotify="true" />
-        <!-- <field id="buttonSelected" type="integer" alias="buttons.itemSelected" /> -->
     </interface>
     <children>
         <Poster
@@ -36,16 +34,6 @@
             height="108"
             font="font:SmallestSystemFont"
         />
-        <!-- <LabelList
-            id="buttons"
-            itemSpacing="[0,9]"
-            itemSize="[264, 42]"
-			translation="[93,306]"
-            textHorizAlign="center"
-            font="font:SmallSystemFont"
-            focusBitmapBlendColor="0x01B6D1FF"
-            focusedColor="0xFFFFFFFF"
-        /> -->
         <Button
             id = "button"
             text = "Play"

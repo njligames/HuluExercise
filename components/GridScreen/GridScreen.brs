@@ -42,7 +42,7 @@ function onKeyEvent(key as string, press as boolean) as boolean
             handled = false
         else
             if m.focus = "rowList"
-                if key = "left"
+                if key = "left" or key = "up"
                     m.home_button.setFocus(true)
                     m.focus = "home"
                 end if
@@ -73,7 +73,7 @@ function onKeyEvent(key as string, press as boolean) as boolean
                     m.home_button.setFocus(true)
                     m.focus = "home"
                 end if
-                if key = "right"
+                if key = "right" or key = "down"
                     m.rowList.SetFocus(true)
                     m.focus = "rowList"
                 end if

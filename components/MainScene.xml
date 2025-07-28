@@ -15,9 +15,9 @@
             font="font:MediumBoldSystemFont"
         />
         <Timer
-        id="loadingTimer"
-        repeat="true"
-        duration=".3"
+            id="loadingTimer"
+            repeat="true"
+            duration=".3"
         />
     </children>
 </component>
