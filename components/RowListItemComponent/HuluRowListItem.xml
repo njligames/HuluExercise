@@ -12,7 +12,7 @@
     <Poster 
       id = "itemPoster" 
       translation = "[ -9, -9 ]"  
-      width = "216" 
+      width = "213" 
       height = "120" 
     >
     </Poster>

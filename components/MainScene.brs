@@ -2,9 +2,29 @@ sub Init()
     m.top.backgroundColor = "0x662D91"
     m.top.backgroundUri = "pkg:/images/background.jpg"
     m.loadingIndicator = m.top.FindNode("loadingIndicator")
+    m.loadingTimer = m.top.FindNode("loadingTimer")
+    m.loadingTimer.control = "start"
+
+    m.loadingTimer.ObserveField("fire", "ChangeLoadingText")
+    m.elipses = 0
+
     InitScreenStack()
     ShowGridScreen()
-    RunContentTask()
+    RunMainLoaderTask()
+end sub
+
+sub ChangeLoadingText()
+    i = 0
+    m.loadingIndicator.text = "Loading"
+    while i < m.elipses
+        m.loadingIndicator.text += "."
+        i++
+    end while
+    if m.elipses > 3
+        m.elipses = 0
+    else
+        m.elipses++
+    end if
 end sub
 
 function OnKeyEvent(key as string, press as boolean) as boolean
@@ -62,7 +82,7 @@ sub OnDetailsScreenVisiblityChanged(event as object)
     end if
 end sub
 
-sub RunContentTask()
+sub RunMainLoaderTask()
     m.contentTask = CreateObject("roSGNode", "MainLoaderTask")
     m.contentTask.ObserveField("content", "OnMainContentLoaded")
     m.contentTask.control = "run"

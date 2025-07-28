@@ -5,14 +5,19 @@
     <children>
         <Label
             id="loadingIndicator"
-            text="Loading..."
+            text="Loading"
             width="1280"
             height="720"
-            translation="[0, 0]"
-            horizAlign="center"
+            translation="[600, 0]"
+            horizAlign="left"
             vertAlign="center"
             visible="false"
             font="font:MediumBoldSystemFont"
+        />
+        <Timer
+        id="loadingTimer"
+        repeat="true"
+        duration=".3"
         />
     </children>
 </component>
