@@ -10,7 +10,8 @@ sub Init()
 
     InitScreenStack()
     ShowGridScreen()
-    RunMainLoaderTask()
+    ' RunMainLoaderTask()
+    RunRefIdsTask()
 end sub
 
 sub ChangeLoadingText()
@@ -44,6 +45,9 @@ end function
 sub ShowGridScreen()
     m.GridScreen = CreateObject("roSGNode", "GridScreen")
     m.GridScreen.ObserveField("rowItemSelected", "OnGridScreenItemSelected")
+
+    m.global.addFields({ gridscreen: m.GridScreen })
+
     ShowScreen(m.GridScreen)
 end sub
 
@@ -82,15 +86,3 @@ sub OnDetailsScreenVisiblityChanged(event as object)
     end if
 end sub
 
-sub RunMainLoaderTask()
-    m.contentTask = CreateObject("roSGNode", "MainLoaderTask")
-    m.contentTask.ObserveField("content", "OnMainContentLoaded")
-    m.contentTask.control = "run"
-    m.loadingIndicator.visible = true
-end sub
-
-sub OnMainContentLoaded()
-    m.GridScreen.SetFocus(true)
-    m.loadingIndicator.visible = false
-    m.GridScreen.content = m.contentTask.content
-end sub

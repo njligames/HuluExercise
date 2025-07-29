@@ -29,9 +29,11 @@ sub OnItemFocused()
     row = m.rowList.content.GetChild(focusedIndex[0])
     item = row.GetChild(focusedIndex[1])
 
-    m.grid_poster.uri = item.FHDPosterUrl
-    m.grid_poster_overlay.uri = item.FHDPosterUrl
-    m.titleLabel.text = item.title
+    if invalid <> item
+        m.grid_poster.uri = item.FHDPosterUrl
+        m.grid_poster_overlay.uri = item.FHDPosterUrl
+        m.titleLabel.text = item.title
+    end if
 end sub
 
 function onKeyEvent(key as string, press as boolean) as boolean

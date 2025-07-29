@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="RefIdsTask" extends="Task">
+    <interface>
+        <field id="content" type="array" />
+    </interface>
+
+    <script type="text/brightscript" uri="RefIdsTask.brs" />
+</component>

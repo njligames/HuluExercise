@@ -6,6 +6,7 @@ sub ShowChannelRSGScreen()
     screen = CreateObject("roSGScreen")
     m.port = CreateObject("roMessagePort")
     screen.SetMessagePort(m.port)
+    m.global = screen.getGlobalNode()
     scene = screen.CreateScene("MainScene")
     screen.Show()
 
