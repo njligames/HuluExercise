@@ -13,11 +13,9 @@ end sub
 sub OnRefContentRowLoaded()
     gridScreen = CurrentScreen()
 
-    ' rootChildren = m.global.getField("rootChildren")
     rootChildren = gridScreen.rootChildren
     if m.refContentTask.row.count() > 1
         rootChildren.push(m.refContentTask.row)
-        ' m.global.setField("rootChildren", rootChildren)
         gridScreen.rootChildren = rootChildren
 
         contentNode = CreateObject("roSGNode", "ContentNode")
@@ -28,13 +26,11 @@ sub OnRefContentRowLoaded()
     end if
     m.refContentTask.control = "stop"
 
-    ' refids = m.global.getField("refids")
+    ' If there are more refids, add another row.
     refids = gridScreen.refIds
-    ' currentIndex = m.global.getField("currentIndex")
     currentIndex = gridScreen.currentIndex
     if currentIndex < refids.count()
         RunRefContentTask(refids[currentIndex])
-        ' m.global.setField("currentIndex", currentIndex + 1)
         gridScreen.currentIndex = currentIndex + 1
     end if
 end sub

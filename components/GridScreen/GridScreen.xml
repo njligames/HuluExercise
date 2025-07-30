@@ -6,6 +6,7 @@
         <field id="rowItemSelected" type="intarray" alwaysNotify="true" alias="RowList.rowItemSelected" />
         <field id="jumpToRowItem" type="intarray" alias="RowList.jumpToRowItem" />
 
+        <!-- I need these fields for dynamic loading-->
         <field id="rootChildren" type="array" />
         <field id="currentIndex" type="integer" />
         <field id="refids" type="array" />
