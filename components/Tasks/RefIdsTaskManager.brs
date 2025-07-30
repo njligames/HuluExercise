@@ -10,9 +10,6 @@ sub OnRefIdsContentLoaded()
 
     refids = m.global.getField("refids")
 
-
-
-    ' stop
     currentIndex = 0
     if currentIndex < refids.count()
         m.global.addFields({ rootChildren: [] })
@@ -23,6 +20,5 @@ sub OnRefIdsContentLoaded()
 
     m.GridScreen.SetFocus(true)
     if invalid <> m.loadingIndicator then m.loadingIndicator.visible = false
-    ' m.GridScreen.content = m.refIdsTask.content
     m.refIdsTask.control = "stop"
 end sub'

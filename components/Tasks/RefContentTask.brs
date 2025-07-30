@@ -24,7 +24,6 @@ sub GetContent()
                     itemData = GetItemData(item)
                     row.children.Push(itemData)
                 end for
-                ' rootChildren.Push(row)
             end if
         end if
     end if

@@ -2,7 +2,6 @@
 <component name="MainScene" extends="Scene">
     <script type="text/brightscript" uri="MainScene.brs" />
     <script type="text/brightscript" uri="pkg:/source/ScreenStackLogic.brs" />
-    <script type="text/brightscript" uri="pkg:/components/Tasks/MainLoaderTaskManager.brs" />
     <script type="text/brightscript" uri="pkg:/components/Tasks/RefIdsTaskManager.brs" />
     <script type="text/brightscript" uri="pkg:/components/Tasks/RefContentTaskManager.brs" />
     <children>

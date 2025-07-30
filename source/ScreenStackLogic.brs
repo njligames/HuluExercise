@@ -26,3 +26,7 @@ sub CloseScreen(node as object)
         end if
     end if
 end sub
+
+function CurrentScreen() as object
+    return m.screenStack.Peek()
+end function

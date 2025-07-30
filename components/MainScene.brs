@@ -10,7 +10,6 @@ sub Init()
 
     InitScreenStack()
     ShowGridScreen()
-    ' RunMainLoaderTask()
     RunRefIdsTask()
 end sub
 
