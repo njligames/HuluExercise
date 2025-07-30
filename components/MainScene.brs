@@ -45,8 +45,6 @@ sub ShowGridScreen()
     m.GridScreen = CreateObject("roSGNode", "GridScreen")
     m.GridScreen.ObserveField("rowItemSelected", "OnGridScreenItemSelected")
 
-    m.global.addFields({ gridscreen: m.GridScreen })
-
     ShowScreen(m.GridScreen)
 end sub
 

@@ -11,24 +11,30 @@ sub RunRefContentTask(refids as dynamic)
 end sub
 
 sub OnRefContentRowLoaded()
-    rootChildren = m.global.getField("rootChildren")
+    gridScreen = CurrentScreen()
+
+    ' rootChildren = m.global.getField("rootChildren")
+    rootChildren = gridScreen.rootChildren
     if m.refContentTask.row.count() > 1
         rootChildren.push(m.refContentTask.row)
-        m.global.setField("rootChildren", rootChildren)
+        ' m.global.setField("rootChildren", rootChildren)
+        gridScreen.rootChildren = rootChildren
 
         contentNode = CreateObject("roSGNode", "ContentNode")
         contentNode.Update({
             children: rootChildren
         }, true)
-        m.GridScreen = m.global.getField("gridscreen")
-        m.GridScreen.content = contentNode
+        if invalid <> gridScreen then gridScreen.content = contentNode
     end if
     m.refContentTask.control = "stop"
 
-    refids = m.global.getField("refids")
-    currentIndex = m.global.getField("currentIndex")
+    ' refids = m.global.getField("refids")
+    refids = gridScreen.refIds
+    ' currentIndex = m.global.getField("currentIndex")
+    currentIndex = gridScreen.currentIndex
     if currentIndex < refids.count()
         RunRefContentTask(refids[currentIndex])
-        m.global.setField("currentIndex", currentIndex + 1)
+        ' m.global.setField("currentIndex", currentIndex + 1)
+        gridScreen.currentIndex = currentIndex + 1
     end if
 end sub
